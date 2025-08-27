@@ -1,0 +1,220 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Geist", sans-serif;
+  /* font-weight: 500; */
+}
+
+/* experience is the div that contains the canvas element */
+#experience {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#experience-canvas {
+  width: 100%;
+  height: 100%;
+}
+/* Utilities  */
+.hidden {
+  display: none !important;
+}
+
+/* Modal  */
+.modal {
+  padding: 12px;
+
+  z-index: 999; /* the z-index for the three-js scene is fucky */
+  position: absolute;
+  /*  easiest way to center a div  */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  background-color: #a0614f; /* warm clay / terracotta */
+  color: #fff;
+  box-shadow: 8px 8px 0 #000;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.1s ease,
+    transform 0.1s ease;
+}
+
+.modal-wrapper {
+  padding: 12px;
+}
+
+.modal-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* border-bottom: 2px solid #ddd; */
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.loading-screen {
+  z-index: 9999;
+  position: absolute;
+  inset: 0; /* shorthand for top/left/right/bottom:0 */
+  width: 100%;
+  height: 100%;
+
+  background-color: #815549; /* warm clay (light theme) */
+  border: 8px solid #000; /* chunky border */
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Geist", monospace; /* blocky font (Google Fonts) */
+  font-size: 18px;
+  text-transform: uppercase;
+
+  box-shadow: 12px 12px 0 #000; /* blocky shadow */
+  transition: opacity 0.3s ease;
+}
+
+/* Dark theme version */
+body.dark .loading-screen {
+  background-color: #222; /* deep gray */
+  border-color: #fff;
+  color: #f0f0f0;
+  box-shadow: 12px 12px 0 #fff;
+}
+
+/* Status text */
+.loading-status {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Instructions text */
+.instructions {
+  font-size: 14px;
+  opacity: 0.8;
+  align-items: center;
+  text-align: center;
+}
+
+/* Add a simple "blinking" effect for status */
+.loading-status::after {
+  content: " ▮";
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.user-interface {
+  /* w/o this 2, the button doesnt show up on screen (something to do with threejs)   */
+  z-index: 888;
+  position: absolute;
+  /*  */
+  top: 9%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+
+#view-source {
+  color: aqua;
+}
+
+#darkModeToggle {
+  background: #e0e0e0; /* light gray block */
+  border: 3px solid #000; /* chunky outline */
+  border-radius: 6px; /* slightly rounded corners */
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* pixelated / blocky feel */
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#darkModeToggle svg {
+  width: 28px;
+  height: 28px;
+  fill: #000; /* icon color */
+  pointer-events: none;
+}
+
+#darkModeToggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Dark theme version */
+body.dark #darkModeToggle {
+  background: #222;
+  border-color: #fff;
+  box-shadow: 4px 4px 0 #fff;
+}
+
+body.dark #darkModeToggle svg {
+  fill: #fff;
+}
+
+.modal-exit-button {
+  background: #e0e0e0;
+  max-height: 40px;
+  border: 3px solid #000;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.modal-exit-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: #000;
+}
+
+.modal-exit-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+body.dark .modal-exit-button {
+  background: #222;
+  border-color: #fff;
+  box-shadow: 3px 3px 0 #fff;
+}
+
+body.dark .modal-exit-button svg {
+  stroke: #fff;
+}
+
+/* Dark theme modal */
+body.dark .modal {
+  background-color: #2a2a2a; /* deep gray block */
+  color: #f0f0f0; /* light text */
+  box-shadow: 8px 8px 0 #fff; /* inverted chunky shadow */
+}
+
+/* Optional: make header stand out in dark mode */
+body.dark .modal-header {
+  /* border-bottom: 2px solid #444; */
+  padding-bottom: 6px;
+}

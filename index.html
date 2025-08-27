@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- the canvas injected by threejs will be appended here     -->
+    <div id="experience">
+      <canvas id="experience-canvas"></canvas>
+    </div>
+
+    <div class="loading-screen">
+      <div class="loading-status">
+        <h3 id="loading-status-text">Loading...</h2>
+      </div>
+      <div class="instructions">
+        <h3>
+          USE ARROW KEYS OR WASD TO MOVE <br />
+          USA LE FRECCIE O WASD PER MUOVERTI
+        </h3>
+      </div>
+    </div>
+
+    <div class="user-interface">
+      <button id="darkModeToggle">
+ <svg
+    id="themeIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="currentColor"
+  >
+    <path
+      id="themeIconPath"
+      d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1zm0 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm7.5-4.5a1 1 0 0 1 1 1V13a1 1 0 1 1-2 0v-.5a1 1 0 0 1 1-1zM12 17a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V18a1 1 0 0 1 1-1zM4.5 12a1 1 0 0 1 1-1H7a1 1 0 1 1 0 2H5.5a1 1 0 0 1-1-1z"
+    />
+  </svg>
+      </button>
+    </div>
+
+    <div class="modal hidden">
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <h1 class="modal-title">Project one</h1>
+          <button class="modal-exit-button">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="square"
+              >
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </svg>
+            </button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-content-wrapper">
+
+            <div class="modal-project-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloremque placeat repudiandae quia, est non, iusto necessitatibus
+              quod tempora aperiam nostrum earum dolorum consequatur expedita
+            </div>
+            <a
+              id="view-source"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="modal-project-visit-button hidden"
+              >View source</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script
+      type="module"
+      src="./main.js"
+    ></script>
+  </body>
+</html>
