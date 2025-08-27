@@ -160,7 +160,7 @@ const intersectObjectsNames = ["Project1", "Project2", "Project3"];
 let model;
 // Load .glb
 loader.load(
-  "./Portfolio-with-collider.glb",
+  "/portfolio-with-collider.glb",
   (glb) => {
     model = glb.scene;
     model.traverse((child) => {
